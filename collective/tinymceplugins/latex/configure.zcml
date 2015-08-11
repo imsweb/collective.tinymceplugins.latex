@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="collective.tinymceplugins.latex">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.tinymceplugins.latex"
+        directory="profiles/default"
+        description="Latex plugin/button for TinyMCE wysiwyg editor"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+</configure>

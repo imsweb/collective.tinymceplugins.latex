@@ -16,7 +16,7 @@
 
     <include package="Products.CMFCore" file="permissions.zcml" />
 
-    <browser:view
+    <browser:page
         name="latex-example"
         for="*"
         class=".future.RenderLatexExample"

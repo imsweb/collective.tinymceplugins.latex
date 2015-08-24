@@ -3,6 +3,8 @@ from Products.Five.browser import BrowserView
 class RenderLatexExample(BrowserView):
     def get_image(self):
       try:
+        import matplotlib
+        matplotlib.use('Agg')
         import matplotlib.pyplot as plt
       except:
         return None

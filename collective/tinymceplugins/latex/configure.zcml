@@ -20,6 +20,7 @@
         name="latex-example"
         for="*"
         class=".future.RenderLatexExample"
+        template="future.pt"
         permission="cmf.ManagePortal"
         />
 

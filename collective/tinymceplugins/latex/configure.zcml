@@ -14,4 +14,11 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <browser:view
+        name="latex-example"
+        for="*"
+        class=".future.RenderLatexExample"
+        permission="cmf.ManagePortal"
+        />
+
 </configure>

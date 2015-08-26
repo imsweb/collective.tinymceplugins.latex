@@ -17,10 +17,9 @@
     <include package="Products.CMFCore" file="permissions.zcml" />
 
     <browser:page
-        name="latex-example"
+        name="latex"
         for="*"
-        class=".future.RenderLatexExample"
-        template="future.pt"
+        class=".future.RenderLatex"
         permission="cmf.ManagePortal"
         />
 

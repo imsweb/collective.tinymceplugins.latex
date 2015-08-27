@@ -3,13 +3,13 @@ from Products.Five.browser import BrowserView
 class RenderLatex(BrowserView):
     def __call__(self):
       try:
-        import matplotlib
+        import matplotlib, io
         matplotlib.use('Agg') # png
         import matplotlib.pyplot as plt
       except:
         return None
 
-      formula = self.request.get('f') or self.request.get('f')
+      formula = self.request.get('formula') or self.request.get('f')
 
       fig = plt.figure(figsize=(3,3))
 

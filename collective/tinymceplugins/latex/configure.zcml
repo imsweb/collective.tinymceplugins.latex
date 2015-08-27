@@ -20,7 +20,7 @@
         name="latex"
         for="*"
         class=".formula.RenderLatex"
-        permission="cmf.ManagePortal"
+        permission="zope2.View"
         />
 
 </configure>

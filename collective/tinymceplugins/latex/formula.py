@@ -29,3 +29,7 @@ class RenderLatex(BrowserView):
       buf.seek(0)
       self.request.response.setHeader('Content-Type','image/png')
       return buf.read()
+
+    def absolute_url(self):
+      """ Appease the plone.outputfilters gods """
+      return self.context.absolute_url()+'/@@latex'

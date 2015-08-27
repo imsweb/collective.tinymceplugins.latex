@@ -19,7 +19,7 @@
     <browser:page
         name="latex"
         for="*"
-        class=".future.RenderLatex"
+        class=".formula.RenderLatex"
         permission="cmf.ManagePortal"
         />
 

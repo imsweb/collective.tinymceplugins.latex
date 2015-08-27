@@ -9,7 +9,7 @@ tinyMCEPopup.requireLangPack();
 var LatexDialog = {
 
 	init : function() {
-		if (code = tinymce.activeEditor.selection.getNode().alt){
+		if (code = tinyMCE.activeEditor.selection.getNode().alt){
 
 			document.forms[0].latex_code.innerHTML = code;
 

@@ -17,7 +17,7 @@ class RenderLatex(BrowserView):
       def save(buf):
         fig.savefig(buf,bbox_inches='tight',pad_inches=0)
 
-      fig.text(0, 0, '$%s$' % formula, size=16)
+      fig.text(0, 0, '$%s$' % formula, size=14)
       save(buf)
       #; del buf # render once so we can get size
       #buf = io.BytesIO()

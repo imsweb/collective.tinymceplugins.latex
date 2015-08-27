@@ -13,7 +13,7 @@ class RenderLatex(BrowserView):
 
       fig = plt.figure(figsize=(3,3))
 
-
+      buf = io.BytesIO()
       def save(buf):
         fig.savefig(buf,bbox_inches='tight',pad_inches=0)
 

@@ -13,7 +13,10 @@ class RenderLatex(BrowserView):
 
       buf = io.BytesIO()
       fig = plt.figure(figsize=(0.1,0.1))
-      fig.text(0, 0, '$%s$' % formula, size=20)
+      size = 16
+      if '\frac' in size: # these get small, make them bigger!
+        size = 20
+      fig.text(0, 0, '$%s$' % formula, size=size)
       fig.savefig(buf,bbox_inches='tight',pad_inches=0)
 
       buf.seek(0)

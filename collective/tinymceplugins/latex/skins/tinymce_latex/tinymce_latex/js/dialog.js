@@ -17,7 +17,7 @@ var LatexDialog = {
 		var latexCode = document.forms[0].latex_code.value
 		    latexSize = document.forms[0].latex_size.value;
 
-		var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode) + '" alt="'+ latexCode +'" latex_size="' + latexSize + '"/>';
+		var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode,latexSize) + '" alt="'+ latexCode +'" latex_size="' + latexSize + '"/>';
 
 		tinyMCEPopup.editor.execCommand('mceInsertContent', false, img);
 		tinyMCEPopup.close();

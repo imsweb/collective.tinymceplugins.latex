@@ -11,7 +11,7 @@
 	<p><input type="button" class="context" id="preview" name="preview" value="Preview" onclick="LatexDialog.preview();" /></p>
 	<p><img id="previewImg" src="" alt=""/></p>
 	<p>
-	  <label for="latex_size">Font size</label></br>
+	  <label for="latex_size">Font size</label><br/>
 	  <select name="latex_size">
 	    <option>12</option>
 	    <option>14</option>

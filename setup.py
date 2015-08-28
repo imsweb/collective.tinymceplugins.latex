@@ -23,6 +23,7 @@ setup(name='collective.tinymceplugins.latex',
       zip_safe=False,
       install_requires = [
         'setuptools',
+        'plone.app.jquery',
         #'matplotlib',
       ],
       entry_points="""

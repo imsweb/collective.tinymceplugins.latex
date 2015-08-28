@@ -10,14 +10,16 @@ class RenderLatex(BrowserView):
         return None
 
       formula = self.request.get('formula') or self.request.get('f')
+      size = self.request.get('size') or self.request.get('s') or 16
+      try:
+        size = int(size)
+      except ValueError: #invalid int
+        size = 16
       if not formula:
         return
 
       buf = io.BytesIO()
       fig = plt.figure(figsize=(0.1,0.1))
-      size = 16
-      if '\frac' in formula: # these get small, make them bigger!
-        size = 20
       fig.text(0, 0, '$%s$' % formula, size=size)
       fig.savefig(buf,bbox_inches='tight',pad_inches=0)
 

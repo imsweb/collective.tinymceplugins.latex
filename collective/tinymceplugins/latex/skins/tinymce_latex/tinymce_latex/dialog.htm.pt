@@ -11,6 +11,17 @@
 	<p>Paste your latex code.</p>
 	<p><input type="button" class="context" id="preview" name="preview" value="Preview" onclick="LatexDialog.preview();" /></p>
 	<p><img id="previewImg" src="" alt=""/></p>
+	<p>
+	  <select name="latex_size">
+	    <option>12</option>
+	    <option>14</option>
+	    <option selected="selected">16</option>
+	    <option>18</option>
+	    <option>20</option>
+	    <option>22</option>
+	    <option>24</option>
+	  </select>
+	</p>
 	<p><textarea name="latex_code" cols="100" rows="19"></textarea></p>
 
 	<div class="mceActionPanel">

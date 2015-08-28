@@ -1,26 +1,23 @@
-/*
- * TinyMCELatexPlugin - A plugin to write formulae in TinyMCE through Google APIs .
- * v1.0 - by Diego Caponera - http://www.diegocaponera.com/
- * MIT Licensed.
- */
-
 tinyMCEPopup.requireLangPack();
 
 var LatexDialog = {
 
 	init : function() {
 		if (code = tinyMCE.activeEditor.selection.getNode().alt){
-
 			document.forms[0].latex_code.innerHTML = code;
-
 		}
+		if (size = tinyMCE.activeEditor.selection.getNode().latex-size){
+		  document.forms[0].latex_size.value = size;
+		}
+
 	},
 
 	insert : function() {
 
-		var latexCode = document.forms[0].latex_code.value;
+		var latexCode = document.forms[0].latex_code.value
+		    latexSize = document.forms[0].latex_size.value;
 
-		var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode) + '" alt="'+ latexCode +'"/>';
+		var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode) + '" alt="'+ latexCode +'" latex-size="' + latexSize + '"/>';
 
 		tinyMCEPopup.editor.execCommand('mceInsertContent', false, img);
 		tinyMCEPopup.close();
@@ -29,18 +26,19 @@ var LatexDialog = {
 	preview : function() {
 
 		var latexCode = document.forms[0].latex_code.value
+		    latexSize = document.forms[0].latex_size.value;
 
 		if (document.forms[0].latex_code.value != ''){
 
-			document.getElementById('previewImg').src = LatexDialog.getSrc(latexCode);
+			document.getElementById('previewImg').src = LatexDialog.getSrc(latexCode,latexSize);
 
 		}
 
 	},
 
-	getSrc : function(code){
+	getSrc : function(code,size){
 
-		return '@@latex?f=' + encodeURIComponent(code);
+		return '@@latex?f=' + encodeURIComponent(code) + '&s=' + size;
 
 	}
 };

@@ -6,7 +6,7 @@ var LatexDialog = {
 		if (code = tinyMCE.activeEditor.selection.getNode().alt){
 			document.forms[0].latex_code.innerHTML = code;
 		}
-		if (size = tinyMCE.activeEditor.selection.getNode().latex-size){
+		if (size = tinyMCE.activeEditor.selection.getNode().latex_size){
 		  document.forms[0].latex_size.value = size;
 		}
 
@@ -17,7 +17,7 @@ var LatexDialog = {
 		var latexCode = document.forms[0].latex_code.value
 		    latexSize = document.forms[0].latex_size.value;
 
-		var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode) + '" alt="'+ latexCode +'" latex-size="' + latexSize + '"/>';
+		var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode) + '" alt="'+ latexCode +'" latex_size="' + latexSize + '"/>';
 
 		tinyMCEPopup.editor.execCommand('mceInsertContent', false, img);
 		tinyMCEPopup.close();

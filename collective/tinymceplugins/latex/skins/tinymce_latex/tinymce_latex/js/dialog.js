@@ -6,7 +6,7 @@ var LatexDialog = {
 		if (code = tinyMCE.activeEditor.selection.getNode().alt){
 			document.forms[0].latex_code.innerHTML = code;
 		}
-		if (size = tinyMCE.activeEditor.selection.getNode().latex_size){
+		if (size = tinyMCE.activeEditor.selection.getNode().attributes['latex_size']){
 		  document.forms[0].latex_size.value = size;
 		}
 

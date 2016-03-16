@@ -24,14 +24,20 @@ var LatexDialog = {
 	},
 
 	preview : function() {
-
 		var latexCode = document.forms[0].latex_code.value
 		    latexSize = document.forms[0].latex_size.value;
 
+    latex_src = LatexDialog.getSrc(latexCode,latexSize);
+    // check if it created a valid image
+    $.get(latex_src).success(function(data) {
+      if (data.startsWith('error')) {
+        data = 'There was an error rendering this image: ' + data.slice(7);
+        document.getElementById('error_text').innerHTML = data;
+      }
+    });
+
 		if (document.forms[0].latex_code.value != ''){
-
-			document.getElementById('previewImg').src = LatexDialog.getSrc(latexCode,latexSize);
-
+			document.getElementById('previewImg').src = latex_src;
 		}
 
 	},

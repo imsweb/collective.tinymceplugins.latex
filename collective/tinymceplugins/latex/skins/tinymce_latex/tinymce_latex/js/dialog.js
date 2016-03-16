@@ -26,7 +26,7 @@ var LatexDialog = {
 	preview : function() {
 		var latexCode = document.forms[0].latex_code.value
 		    latexSize = document.forms[0].latex_size.value;
-	 document.getElementById('previewImg').src = "spinner.gif";
+	 document.getElementById('previewImg').src = "../spinner.gif";
 
     latex_src = LatexDialog.getSrc(latexCode,latexSize);
     // check if it created a valid image

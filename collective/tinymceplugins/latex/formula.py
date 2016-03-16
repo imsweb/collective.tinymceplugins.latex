@@ -7,16 +7,15 @@ class RenderLatex(BrowserView):
         matplotlib.rcParams['text.latex.preamble'].append(r'\usepackage{amsmath}')
         matplotlib.use('Agg') # png
         import matplotlib.pyplot as plt
-        return None
 
         formula = self.request.get('formula') or self.request.get('f')
         size = self.request.get('size') or self.request.get('s') or 16
+        if not formula:
+          return
         try:
           size = int(size)
         except ValueError: #invalid int
           size = 16
-        if not formula:
-          return
 
         buf = io.BytesIO()
         fig = plt.figure(figsize=(0.1,0.1))

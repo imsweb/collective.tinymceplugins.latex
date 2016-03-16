@@ -27,7 +27,7 @@ class RenderLatex(BrowserView):
         self.request.response.setHeader('Content-Type','image/png')
         return buf.read()
       except Exception, e:
-        return 'error: %s' % cgi.escape(e.message.replace('\n','<br/>'))
+        return 'error: %s' % cgi.escape(e.message).replace('\n','<br/>')
 
     def absolute_url(self):
       """ Appease the plone.outputfilters gods """

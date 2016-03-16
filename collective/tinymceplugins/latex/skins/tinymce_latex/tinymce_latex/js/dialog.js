@@ -26,13 +26,15 @@ var LatexDialog = {
 	preview : function() {
 		var latexCode = document.forms[0].latex_code.value
 		    latexSize = document.forms[0].latex_size.value;
+	 document.getElementById('previewImg').src = "spinner.gif";
 
     latex_src = LatexDialog.getSrc(latexCode,latexSize);
     // check if it created a valid image
     $.get(latex_src).success(function(data) {
-      if (data.startsWith('error')) {
+      if (typeof(data)=="string" && data.startsWith('error')) {
         data = 'There was an error rendering this image: ' + data.slice(7);
         document.getElementById('error_text').innerHTML = data;
+        document.getElementById('previewImg').src = "";
       }
     });
 

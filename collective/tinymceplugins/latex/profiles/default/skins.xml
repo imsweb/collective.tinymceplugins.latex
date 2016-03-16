@@ -7,7 +7,7 @@
 
  <skin-path name="*">
 
-  <layer name="tinymce_latex" insert-after="tinymce"/>
+  <layer name="tinymce_latex" insert-after="latex"/>
 
  </skin-path>
 </object>

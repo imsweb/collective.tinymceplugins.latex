@@ -10,7 +10,7 @@
 
 <form onsubmit="ExampleDialog.insert();return false;" action="#">
 	<p><input type="button" class="context" id="preview" name="preview" value="Preview" onclick="LatexDialog.preview();" /></p>
-	<p><img id="previewImg" src="" alt=""/><span id="error_text" /></p>
+	<p><img id="previewImg" src="" alt=""/><pre id="error_text" /></p>
 	<div>
 	  <label for="latex_size">Font size</label>
 	  <select name="latex_size">

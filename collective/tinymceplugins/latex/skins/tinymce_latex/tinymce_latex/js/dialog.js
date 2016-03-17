@@ -26,6 +26,7 @@ var LatexDialog = {
 	preview : function() {
 		var latexCode = document.forms[0].latex_code.value
 		    latexSize = document.forms[0].latex_size.value;
+	 document.getElementById('error_text').innerHTML = '';
 	 document.getElementById('previewImg').src = "../spinner.gif";
 
     latex_src = LatexDialog.getSrc(latexCode,latexSize);

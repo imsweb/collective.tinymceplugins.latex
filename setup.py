@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '1.1'
 
 setup(name='collective.tinymceplugins.latex',
       version=version,
@@ -9,9 +9,9 @@ setup(name='collective.tinymceplugins.latex',
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+      ],
       keywords='',
       author='Eric Wohnlich',
       author_email='wohnlice@imsweb.com',
@@ -21,10 +21,10 @@ setup(name='collective.tinymceplugins.latex',
       namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
-      install_requires = [
-        'setuptools',
-        'plone.app.jquery',
-        #'matplotlib',
+      install_requires=[
+          'setuptools',
+          'plone.app.jquery',
+          #'matplotlib',
       ],
       entry_points="""
       # -*- Entry points: -*-
@@ -34,5 +34,5 @@ setup(name='collective.tinymceplugins.latex',
       """,
       extras_require={
           'test': ['plone.app.testing', 'plone.mocktestcase', 'five.grok'],
-          },
+      },
       )

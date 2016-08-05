@@ -33,6 +33,6 @@ setup(name='collective.tinymceplugins.latex',
       target = plone
       """,
       extras_require={
-          'test': ['plone.app.testing', 'plone.mocktestcase', 'five.grok'],
+          'test': ['plone.app.testing', 'plone.mocktestcase'],
       },
       )

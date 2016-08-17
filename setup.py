@@ -6,8 +6,6 @@ version = '1.1'
 setup(name='collective.tinymceplugins.latex',
       version=version,
       description="",
-      # Get more strings from
-      # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
           "Framework :: Plone",
           "Programming Language :: Python",

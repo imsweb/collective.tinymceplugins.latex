@@ -1,4 +1,5 @@
 from Products.Five.browser import BrowserView
+import cgi
 
 
 class RenderLatex(BrowserView):

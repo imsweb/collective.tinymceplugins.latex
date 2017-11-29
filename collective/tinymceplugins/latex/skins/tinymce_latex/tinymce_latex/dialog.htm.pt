@@ -32,7 +32,7 @@
         <textarea name="latex_code" cols="100" rows="19"></textarea></p>
 
     <div class="mceActionPanel">
-        <input type="button" class="context" id="insert" name="insert" value="Insert" onclick="LatexDialog.insert();"/>
+        <input type="button" class="context" id="insert" name="insert" value="Ok" onclick="LatexDialog.insert();"/>
         <input type="button" class="context" id="cancel" name="cancel" value="Cancel" onclick="LatextDialog.close();"/>
     </div>
     <script type="text/javascript">

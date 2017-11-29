@@ -20,7 +20,7 @@ setup(name='collective.tinymceplugins.latex',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          #'matplotlib',
+          #'matplotlib', this really is required but I've had issues putting it in buildout instead of venv
       ],
       entry_points="""
       # -*- Entry points: -*-

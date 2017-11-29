@@ -1,35 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title>{#latex_dlg.title}</title>
-	<script type="text/javascript" src="js/tiny_mce_popup.js"></script>
-	<script type="text/javascript" src="js/dialog.js"></script>
-	<script type="text/javascript" src="../++resource++plone.app.jquery.js"></script>
+<head tal:define="portal_url string:${context/plone_portal_state/portal_url}">
+    <title>LaTeX</title>
+    <script type="text/javascript" src="js/dialog.js"></script>
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/++resource++plone.app.jquery.js"></script>
+    <link rel="stylesheet" type="text/css"
+          tal:attributes="href string:${portal_url}/++plone++static/components/tinymce-builded/js/tinymce/plugins/compat3x/css/dialog.css"
+          data-bundle="production">
 </head>
 <body>
 
 <form onsubmit="ExampleDialog.insert();return false;" action="#">
-	<p><input type="button" class="context" id="preview" name="preview" value="Preview" onclick="LatexDialog.preview();" /></p>
-	<p><img id="previewImg" src="" alt=""/><pre id="error_text"></pre></p>
-	<div>
-	  <label for="latex_size">Font size</label>
-	  <select name="latex_size">
-	    <option>12</option>
-	    <option>14</option>
-	    <option selected="selected">16</option>
-	    <option>18</option>
-	    <option>20</option>
-	    <option>22</option>
-	    <option>24</option>
-	  </select>
-	</div>
-	<p><label for="latex_code">Paste your LaTeX code</label><br/>
-	  <textarea name="latex_code" cols="100" rows="19"></textarea></p>
+    <p><input type="button" class="context" id="preview" name="preview" value="Preview"
+              onclick="LatexDialog.preview();"/></p>
+    <p><img id="previewImg" src="" alt=""/>
+    <pre id="error_text"></pre>
+    </p>
+    <div>
+        <label for="latex_size">Font size</label>
+        <select name="latex_size">
+            <option>12</option>
+            <option>14</option>
+            <option selected="selected">16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>24</option>
+        </select>
+    </div>
+    <p><label for="latex_code">Paste your LaTeX code</label><br/>
+        <textarea name="latex_code" cols="100" rows="19"></textarea></p>
 
-	<div class="mceActionPanel">
-		<input type="button" class="context" id="insert" name="insert" value="{#insert}" onclick="LatexDialog.insert();" />
-		<input type="button" class="context" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
-	</div>
+    <div class="mceActionPanel">
+        <input type="button" class="context" id="insert" name="insert" value="Insert" onclick="LatexDialog.insert();"/>
+        <input type="button" class="context" id="cancel" name="cancel" value="Cancel" onclick="LatextDialog.close();"/>
+    </div>
+    <script type="text/javascript">
+        LatexDialog.init();
+    </script>
 </form>
 
 </body>

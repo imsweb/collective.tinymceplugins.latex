@@ -3,7 +3,6 @@ import cgi
 
 
 class RenderLatex(BrowserView):
-
     def __call__(self):
         try:
             import matplotlib
@@ -28,9 +27,11 @@ class RenderLatex(BrowserView):
 
             buf.seek(0)
             self.request.response.setHeader('Content-Type', 'image/png')
-            return buf.read()
+            data = buf.read()
+            plt.close()
+            return data
         except Exception, e:
-            return 'error: %s' % cgi.escape(e.message).replace('\n','<br/>')
+            return 'error: %s' % cgi.escape(e.message).replace('\n', '<br/>')
 
     def absolute_url(self):
         """ Appease the plone.outputfilters gods """

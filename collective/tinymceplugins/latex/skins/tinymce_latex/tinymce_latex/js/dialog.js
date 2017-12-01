@@ -32,21 +32,21 @@ var LatexDialog = {
             latexSize = document.forms[0].latex_size.value,
             error_text = $('#error_text'),
             preview_img = $('#previewImg');
-        error_text.innerHTML = '';
-        preview_img.src = "../++plone++static/select2-spinner.gif";
+        error_text.html('');
+        preview_img.attr('src', '../++plone++static/select2-spinner.gif');
 
         var latex_src = LatexDialog.getSrc(latexCode, latexSize);
         // check if it created a valid image
         $.get(latex_src).success(function (data) {
             if (typeof(data) == "string" && data.startsWith('error')) {
                 data = 'There was an error rendering this image: ' + data.slice(7);
-                error_text.innerHTML = data;
-                preview_img.src = "";
+                error_text.html(data);
+                preview_img.attr('src','');
             }
         });
 
         if (document.forms[0].latex_code.value != '') {
-            preview_img.src = latex_src;
+            preview_img.attr('src', latex_src);
         }
 
     },

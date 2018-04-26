@@ -1,55 +1,59 @@
-tinyMCEPopup.requireLangPack();
-
 var LatexDialog = {
 
-	init : function() {
-		if (code = tinyMCE.activeEditor.selection.getNode().alt){
-			document.forms[0].latex_code.innerHTML = code;
-		}
-		if (size = tinyMCE.activeEditor.selection.getNode().attributes['latex_size']){
-		  document.forms[0].latex_size.value = size;
-		}
+    init: function () {
+        var code = top.tinymce.activeEditor.selection.getNode().alt,
+            size = top.tinymce.activeEditor.selection.getNode().attributes['data-latex_size'];
+        if (code) {
+            document.forms[0].latex_code.innerHTML = code;
+        }
+        if (size) {
+            document.forms[0].latex_size.value = size;
+        }
 
-	},
+    },
 
-	insert : function() {
+    close: function () {
+        top.tinymce.activeEditor.windowManager.close();
+    },
 
-		var latexCode = document.forms[0].latex_code.value
-		    latexSize = document.forms[0].latex_size.value;
+    insert: function () {
 
-		var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode,latexSize) + '" alt="'+ latexCode +'" latex_size="' + latexSize + '"/>';
+        var latexCode = document.forms[0].latex_code.value,
+            latexSize = document.forms[0].latex_size.value;
 
-		tinyMCEPopup.editor.execCommand('mceInsertContent', false, img);
-		tinyMCEPopup.close();
-	},
+        var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode, latexSize) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '"/>';
 
-	preview : function() {
-		var latexCode = document.forms[0].latex_code.value
-		    latexSize = document.forms[0].latex_size.value;
-	 document.getElementById('error_text').innerHTML = '';
-	 document.getElementById('previewImg').src = "../spinner.gif";
+        top.tinymce.activeEditor.selection.setContent(img);
+        top.tinymce.activeEditor.windowManager.close();
+    },
 
-    latex_src = LatexDialog.getSrc(latexCode,latexSize);
-    // check if it created a valid image
-    $.get(latex_src).success(function(data) {
-      if (typeof(data)=="string" && data.startsWith('error')) {
-        data = 'There was an error rendering this image: ' + data.slice(7);
-        document.getElementById('error_text').innerHTML = data;
-        document.getElementById('previewImg').src = "";
-      }
-    });
+    preview: function () {
+        var latexCode = document.forms[0].latex_code.value,
+            latexSize = document.forms[0].latex_size.value,
+            error_text = $('#error_text'),
+            preview_img = $('#previewImg');
+        error_text.html('');
+        preview_img.attr('src', '../++plone++static/select2-spinner.gif');
 
-		if (document.forms[0].latex_code.value != ''){
-			document.getElementById('previewImg').src = latex_src;
-		}
+        var latex_src = LatexDialog.getSrc(latexCode, latexSize);
+        // check if it created a valid image
+        $.get(latex_src).success(function (data) {
+            if (typeof(data) == "string" && data.startsWith('error')) {
+                data = 'There was an error rendering this image: ' + data.slice(7);
+                error_text.html(data);
+                preview_img.attr('src','');
+            }
+        });
 
-	},
+        if (document.forms[0].latex_code.value != '') {
+            preview_img.attr('src', latex_src);
+        }
 
-	getSrc : function(code,size){
+    },
 
-		return '@@latex?f=' + encodeURIComponent(code) + '&s=' + size;
+    getSrc: function (code, size) {
 
-	}
+        return '@@latex?f=' + encodeURIComponent(code) + '&s=' + size;
+
+    }
 };
-
-tinyMCEPopup.onInit.add(LatexDialog.init, LatexDialog);

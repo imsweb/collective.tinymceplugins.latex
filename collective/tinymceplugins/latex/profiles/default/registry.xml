@@ -1,0 +1,14 @@
+<registry>
+    <record name="plone.custom_buttons" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema"
+            field="custom_buttons">
+        <value purge="False">
+            <element>latex</element>
+        </value>
+    </record>
+    <record name="plone.custom_plugins" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema"
+            field="custom_plugins">
+        <value purge="False">
+            <element>latex|tinymce_latex/editor_plugin.js</element>
+        </value>
+    </record>
+</registry>

@@ -36,7 +36,7 @@ class RenderLatex(BrowserView):
                 size = 16
 
             return self.render_image(formula, size)
-        except Exception, e:
+        except Exception as e:
             return 'error: %s' % cgi.escape(e.message).replace('\n', '<br/>')
 
     def absolute_url(self):

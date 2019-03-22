@@ -11,7 +11,7 @@ class RenderLatex(BrowserView):
         import matplotlib.pyplot as plt
         buf = io.BytesIO()
         fig = plt.figure(figsize=(0.1, 0.1))
-        fig.text(0, 0, '$%s$' % formula, size=size)
+        fig.text(0, 0, '${}$'.format(formula), size=size)
         fig.savefig(buf, bbox_inches='tight', pad_inches=0)
 
         buf.seek(0)
@@ -37,7 +37,7 @@ class RenderLatex(BrowserView):
 
             return self.render_image(formula, size)
         except Exception as e:
-            return 'error: %s' % cgi.escape(e.message).replace('\n', '<br/>')
+            return 'error: {}'.format(cgi.escape(e.message).replace('\n', '<br/>'))
 
     def absolute_url(self):
         """ Appease the plone.outputfilters gods """

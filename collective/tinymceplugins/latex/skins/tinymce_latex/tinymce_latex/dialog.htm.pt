@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form onsubmit="ExampleDialog.insert();return false;" action="#">
+<form onsubmit="ExampleDialog.insert();return false;" action="#" id="latexFormulaInput">
     <p><input type="button" class="context" id="preview" name="preview" value="Preview"
               onclick="LatexDialog.preview();"/></p>
     <p><img id="previewImg" src="" alt=""/>
@@ -27,6 +27,10 @@
             <option>22</option>
             <option>24</option>
         </select>
+    </div>
+    <div>
+        <label for="pad_inches">Padding (inches, can be decimal e.g. 0.1)</label>
+        <input name="pad_inches" value="" type="text"/>
     </div>
     <p><label for="latex_code">Paste your LaTeX code</label><br/>
         <textarea name="latex_code" cols="100" rows="19"></textarea></p>

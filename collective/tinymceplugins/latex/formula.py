@@ -7,12 +7,12 @@ from plone.memoize.instance import memoize
 
 class RenderLatex(BrowserView):
     @memoize
-    def render_image(self, formula, size):
+    def render_image(self, formula, size, pad_inches=0):
         import matplotlib.pyplot as plt
         buf = io.BytesIO()
         fig = plt.figure(figsize=(0.1, 0.1))
         fig.text(0, 0, '${}$'.format(formula), size=size)
-        fig.savefig(buf, bbox_inches='tight', pad_inches=0)
+        fig.savefig(buf, bbox_inches='tight', pad_inches=pad_inches)
 
         buf.seek(0)
         self.request.response.setHeader('Content-Type', 'image/png')
@@ -28,14 +28,19 @@ class RenderLatex(BrowserView):
 
             formula = self.request.get('formula') or self.request.get('f')
             size = self.request.get('size') or self.request.get('s') or 16
+            pad_inches = self.request.get('pad_inches') or self.request.get('p') or 0
             if not formula:
                 return
             try:
                 size = int(size)
             except ValueError:  # invalid int
                 size = 16
+            try:
+                pad_inches = float(pad_inches)
+            except ValueError:
+                pad_inches = 0
 
-            return self.render_image(formula, size)
+            return self.render_image(formula, size, pad_inches)
         except Exception as e:
             return 'error: {}'.format(cgi.escape(e.message).replace('\n', '<br/>'))
 

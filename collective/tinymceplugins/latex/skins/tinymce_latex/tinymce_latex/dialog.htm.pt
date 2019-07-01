@@ -37,7 +37,7 @@
 
     <div class="mceActionPanel">
         <input type="button" class="context" id="insert" name="insert" value="Ok" onclick="LatexDialog.insert();"/>
-        <input type="button" class="context" id="cancel" name="cancel" value="Cancel" onclick="LatextDialog.close();"/>
+        <input type="button" class="context" id="cancel" name="cancel" value="Cancel" onclick="LatexDialog.close();"/>
     </div>
     <script type="text/javascript">
         LatexDialog.init();

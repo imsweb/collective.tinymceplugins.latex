@@ -24,10 +24,11 @@ var LatexDialog = {
         var latexCode = document.forms[0].latex_code.value,
             latexSize = document.forms[0].latex_size.value,
             pad_inches = document.forms[0].pad_inches.value;
+        if (latexCode) {
+            var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + '"/>';
 
-        var img = '<img class="latex" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + '"/>';
-
-        top.tinymce.activeEditor.selection.setContent(img);
+            top.tinymce.activeEditor.selection.setContent(img);
+        }
         top.tinymce.activeEditor.windowManager.close();
     },
 

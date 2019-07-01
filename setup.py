@@ -15,12 +15,12 @@ setup(name='collective.tinymceplugins.latex',
       url='https://git.imsweb.com/plone/collective.tinymceplugins.latex',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['collective','collective.tinymceplugins'],
+      namespace_packages=['collective', 'collective.tinymceplugins'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           'setuptools',
-          #'matplotlib', this really is required but I've had issues putting it in buildout instead of venv
+          # 'matplotlib', this really is required but I've had issues putting it in buildout instead of venv
       ],
       entry_points="""
       # -*- Entry points: -*-

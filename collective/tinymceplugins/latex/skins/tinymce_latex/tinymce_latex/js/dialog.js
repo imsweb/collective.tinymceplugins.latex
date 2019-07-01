@@ -34,7 +34,7 @@ var LatexDialog = {
     preview: function () {
         var latexCode = document.forms[0].latex_code.value,
             latexSize = document.forms[0].latex_size.value,
-            pad_inches = document.forms[0].latex_size.value,
+            pad_inches = document.forms[0].pad_inches.value,
             error_text = $('#error_text'),
             preview_img = $('#previewImg');
         error_text.html('');

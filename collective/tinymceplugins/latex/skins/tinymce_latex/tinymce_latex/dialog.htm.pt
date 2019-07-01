@@ -18,7 +18,7 @@
     </p>
     <div>
         <label for="latex_size">Font size</label>
-        <select name="latex_size">
+        <select name="latex_size" id="latex_size">
             <option>12</option>
             <option>14</option>
             <option selected="selected">16</option>
@@ -30,10 +30,10 @@
     </div>
     <div>
         <label for="pad_inches">Padding (inches, can be decimal e.g. 0.1)</label>
-        <input name="pad_inches" value="" type="text"/>
+        <input name="pad_inches" id="pad_inches" value="" type="text"/>
     </div>
     <p><label for="latex_code">Paste your LaTeX code</label><br/>
-        <textarea name="latex_code" cols="100" rows="19"></textarea></p>
+        <textarea name="latex_code" id="latex_code" cols="100" rows="19"></textarea></p>
 
     <div class="mceActionPanel">
         <input type="button" class="context" id="insert" name="insert" value="Ok" onclick="LatexDialog.insert();"/>

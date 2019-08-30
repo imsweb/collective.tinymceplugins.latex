@@ -7,7 +7,7 @@ var LatexDialog = {
             alignment = top.tinymce.activeEditor.selection.getNode().getAttribute('data-alignment');
         // also check class for alignment
         if (!alignment) {
-            $.each(top.tinymce.activeEditor.selection.getNode().getAttribute('class').split(' '), function(idx, val) {
+            $.each(top.tinymce.activeEditor.selection.getNode().getAttribute('class').split(' '), function (idx, val) {
                 if (val.startsWith('image-')) {
                     alignment = val.substring(6);
                 }
@@ -42,7 +42,7 @@ var LatexDialog = {
             alignment = ' image-' + alignment;
         }
         if (latexCode) {
-            var img = '<img class="latex' + alignment + '" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + ' data-alignment="' + alignment + '"/>';
+            var img = '<img class="latex' + alignment + '" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + '" data-alignment="' + alignment + '"/>';
 
             top.tinymce.activeEditor.selection.setContent(img);
         }
@@ -55,7 +55,7 @@ var LatexDialog = {
             pad_inches = document.forms[0].pad_inches.value,
             error_text = $('#error_text'),
             preview_img = $('#previewImg'),
-            loading = $('.loading_text');
+            loading = $('#loading_text');
         error_text.html('');
         preview_img.attr('src', '../++plone++static/select2-spinner.gif');
         loading.show();
@@ -67,15 +67,13 @@ var LatexDialog = {
                 data = 'There was an error rendering this image: ' + data.slice(7);
                 error_text.html(data);
                 error_text.show();
-                preview_img.attr('src','');
+                preview_img.attr('src', '');
             }
+            if (document.forms[0].latex_code.value !== '') {
+                preview_img.attr('src', latex_src);
+            }
+            loading.hide();
         });
-
-        if (document.forms[0].latex_code.value !== '') {
-            preview_img.attr('src', latex_src);
-        }
-        loading.hide();
-
     },
 
     getSrc: function (code, size, pad_inches) {

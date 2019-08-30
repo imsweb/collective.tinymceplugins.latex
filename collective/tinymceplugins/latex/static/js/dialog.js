@@ -3,16 +3,12 @@ var LatexDialog = {
     init: function () {
         var code = top.tinymce.activeEditor.selection.getNode().alt,
             size = top.tinymce.activeEditor.selection.getNode().getAttribute('data-latex_size'),
-            pad_inches = top.tinymce.activeEditor.selection.getNode().getAttribute('data-pad_inches'),
-            alignment = top.tinymce.activeEditor.selection.getNode().getAttribute('data-alignment');
-        // also check class for alignment
-        if (!alignment) {
-            $.each(top.tinymce.activeEditor.selection.getNode().getAttribute('class').split(' '), function (idx, val) {
-                if (val.startsWith('image-')) {
-                    alignment = val.substring(6);
-                }
-            })
-        }
+            pad_inches = top.tinymce.activeEditor.selection.getNode().getAttribute('data-pad_inches');
+        $.each(top.tinymce.activeEditor.selection.getNode().getAttribute('class').split(' '), function (idx, val) {
+            if (val.startsWith('image-')) {
+                alignment = val.substring(6);
+            }
+        });
 
         if (code) {
             document.forms[0].latex_code.innerHTML = code;
@@ -42,7 +38,7 @@ var LatexDialog = {
             alignment = ' image-' + alignment;
         }
         if (latexCode) {
-            var img = '<img class="latex' + alignment + '" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + '" data-alignment="' + alignment + '"/>';
+            var img = '<img class="latex' + alignment + '" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + '"/>';
 
             top.tinymce.activeEditor.selection.setContent(img);
         }

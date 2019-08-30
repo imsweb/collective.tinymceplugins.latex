@@ -12,6 +12,9 @@ div {
 textarea {
     resize: none;
 }
+select {
+    display: block;
+}
 #loading_text, #error_text {
     display: none;
 }

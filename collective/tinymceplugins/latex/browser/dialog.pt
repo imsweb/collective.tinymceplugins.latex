@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>LaTeX</title>
+    <script type="text/javascript" src="++resource++collective.tinymceplugins.latex/js/dialog.js"></script>
+    <script type="text/javascript" tal:attributes="src string:++resource++plone.app.jquery.js"></script>
+    <link rel="stylesheet" type="text/css"
+             tal:attributes="href view/theme"
+          data-bundle="production">
+    <link rel="stylesheet" type="text/css"
+             tal:attributes="href string:++resource++collective.tinymceplugins.latex/dialog.css"
+          data-bundle="production">
+</head>
+<body>
+
+<form onsubmit="ExampleDialog.insert();return false;" action="#" id="latexFormulaInput">
+    <div>
+        <input type="button" class="standalone" id="preview" name="preview" value="Preview"
+               onclick="LatexDialog.preview();"/>
+    </div>
+    <span>
+        <img id="previewImg" src="" alt=""/><i id="loading_text">loading...</i>
+        <pre id="error_text"></pre>
+    </span>
+    <div>
+        <label for="latex_size">Font size</label>
+        <select name="latex_size" id="latex_size">
+            <option>12</option>
+            <option>14</option>
+            <option selected="selected">16</option>
+            <option>18</option>
+            <option>20</option>
+            <option>22</option>
+            <option>24</option>
+        </select>
+    </div>
+    <div>
+        <label for="pad_inches">Padding (inches, can be decimal e.g. 0.1)</label>
+        <input name="pad_inches" id="pad_inches" value="" type="text"/>
+    </div>
+    <div>
+        <label for="alignment">Alignment</label>
+        <select name="alignment" id="alignment">
+            <option></option>
+            <option value="inline">Inline</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+            <option value="center">Center</option>
+        </select>
+    </div>
+    <p><label for="latex_code">Paste your LaTeX code</label><br/>
+        <textarea name="latex_code" id="latex_code" cols="100" rows="19"></textarea></p>
+
+    <div class="mceActionPanel">
+        <input type="button" class="plone-btn context" id="insert" name="insert" value="Ok"
+               onclick="LatexDialog.insert();"/>
+        <input type="button" class="plone-btn standalone" id="cancel" name="cancel" value="Cancel"
+               onclick="LatexDialog.close();"/>
+    </div>
+    <script type="text/javascript">
+        LatexDialog.init();
+    </script>
+</form>
+
+</body>
+</html>

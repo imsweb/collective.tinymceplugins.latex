@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser">
+
+    <browser:page
+            name="dialog.html"
+            for="*"
+            class=".dialog.DialogClass"
+            template="dialog.pt"
+            permission="zope.Public"/>
+    <!--<browser:resource-->
+            <!--file="latex_plugin.js"-->
+            <!--name="latex_plugin.js"/>-->
+    <!--<browser:resource-->
+            <!--file="latex.gif"-->
+            <!--name="latex.gif"/>-->
+</configure>

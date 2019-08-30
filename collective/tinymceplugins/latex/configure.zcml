@@ -1,33 +1,28 @@
 <configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:cmf="http://namespaces.zope.org/cmf"
-    xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    xmlns:plone="http://namespaces.plone.org/plone"
-    xmlns:z3c="http://namespaces.zope.org/z3c"
-    i18n_domain="collective.tinymceplugins.latex">
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="collective.tinymceplugins.latex">
 
     <genericsetup:registerProfile
-        name="default"
-        title="collective.tinymceplugins.latex"
-        directory="profiles/default"
-        description="Latex plugin/button for TinyMCE wysiwyg editor"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        />
+            name="default"
+            title="TinyMCE Plugin: LaTeX"
+            directory="profiles/default"
+            description="Latex plugin/button for TinyMCE wysiwyg editor"
+            provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
-    <include package="Products.CMFCore" file="permissions.zcml" />
+    <include package=".browser"/>
+    <include file="upgrades.zcml"/>
+    <include package="Products.CMFCore" file="permissions.zcml"/>
 
-    <cmf:registerDirectory
-        name="skins"
-        directory="skins"
-        recursive="True"
-        />
+    <browser:resourceDirectory
+            name="collective.tinymceplugins.latex"
+            directory="static"/>
 
     <browser:page
-        name="latex"
-        for="*"
-        class=".formula.RenderLatex"
-        permission="zope2.View"
-        />
+            name="latex"
+            for="*"
+            class=".formula.RenderLatex"
+            permission="zope2.View"/>
 
 </configure>

@@ -1,0 +1,22 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="collective.tinymceplugins.latex">
+
+    <genericsetup:registerProfile
+            name="upgrade1"
+            title="Remove skins"
+            directory="profiles/upgrade1"
+            provides="Products.GenericSetup.interfaces.EXTENSION"/>
+
+    <genericsetup:upgradeSteps
+            source="*"
+            destination="2"
+            profile="collective.tinymceplugins.latex:default">
+        <genericsetup:upgradeDepends
+                title="Remove skins"
+                import_profile="collective.tinymceplugins.latex:upgrade1"
+                import_steps="skins"/>
+    </genericsetup:upgradeSteps>
+
+</configure>

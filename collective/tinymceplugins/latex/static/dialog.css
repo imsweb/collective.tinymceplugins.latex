@@ -1,0 +1,17 @@
+body {
+    background-color: white;
+    padding: 8px 8px 0 8px
+}
+pre {
+    background-color: white;
+    border: 0;
+}
+div {
+    padding-bottom: 0.25em;
+}
+textarea {
+    resize: none;
+}
+#loading_text, #error_text {
+    display: none;
+}

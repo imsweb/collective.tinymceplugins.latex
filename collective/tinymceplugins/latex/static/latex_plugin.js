@@ -4,10 +4,10 @@
         init: function (ed, url) {
             ed.addCommand('LatexPlugin', function () {
                 ed.windowManager.open({
-                    url: url + '/dialog.htm',
+                    url: url + '/@@dialog.html',
                     title: 'LaTeX Editor',
-                    width: 750 + parseInt(ed.getLang('latex.delta_width', 0)),
-                    height: 530 + parseInt(ed.getLang('latex.delta_height', 0)),
+                    width: 750,
+                    height: 530,
                     inline: 1
                 }, {
                     plugin_url: url
@@ -16,7 +16,7 @@
             ed.addButton('latex', {
                 title: 'Insert latex code',
                 cmd: 'LatexPlugin',
-                image: url + '/img/latex.gif',
+                image: url + '/latex.gif',
                 stateSelector: 'img[src*="@@latex"]'
             });
         },

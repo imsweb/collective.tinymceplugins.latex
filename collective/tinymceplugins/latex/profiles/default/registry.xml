@@ -7,7 +7,7 @@
     </record>
     <record name="plone.custom_plugins" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema"
             field="custom_plugins">
-        <value purge="False">
+        <value purge="True">
             <element>latex|../../../../../++resource++collective.tinymceplugins.latex/latex_plugin.js</element>
         </value>
     </record>

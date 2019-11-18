@@ -1,4 +1,4 @@
-import cgi
+import html
 import io
 
 from Products.Five.browser import BrowserView
@@ -42,7 +42,7 @@ class RenderLatex(BrowserView):
 
             return self.render_image(formula, size, pad_inches)
         except Exception as e:
-            return 'error: {}'.format(cgi.escape(e.message).replace('\n', '<br/>'))
+            return 'error: {}'.format(html.escape(e).replace('\n', '<br/>'))
 
     def absolute_url(self):
         """ Appease the plone.outputfilters gods """

@@ -42,7 +42,7 @@ class RenderLatex(BrowserView):
 
             return self.render_image(formula, size, pad_inches)
         except Exception as e:
-            return 'error: {}'.format(html.escape(e).replace('\n', '<br/>'))
+            return 'error: {}'.format(html.escape(e))
 
     def absolute_url(self):
         """ Appease the plone.outputfilters gods """

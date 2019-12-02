@@ -49,7 +49,7 @@
         </select>
     </div>
     <p><label for="latex_code">Paste your LaTeX code</label><br/>
-        <textarea name="latex_code" id="latex_code" cols="100" rows="19"></textarea></p>
+        <textarea name="latex_code" id="latex_code" cols="70" rows="19"></textarea></p>
 
     <div class="mceActionPanel">
         <input type="button" class="plone-btn context" id="insert" name="insert" value="Ok"

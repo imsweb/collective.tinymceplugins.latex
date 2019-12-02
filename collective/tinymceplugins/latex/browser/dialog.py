@@ -6,4 +6,4 @@ import plone.api as api
 class DialogClass(BrowserView):
     def theme(self):
         _theme = getTheme(getCurrentTheme())
-        return api.portal.get().absolute_url() + _theme.production_css
+        return api.portal.get().absolute_url() + '/' + _theme.production_css

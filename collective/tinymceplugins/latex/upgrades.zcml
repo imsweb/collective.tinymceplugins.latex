@@ -19,4 +19,12 @@
                 import_steps="skins"/>
     </genericsetup:upgradeSteps>
 
+    <genericsetup:upgradeStep
+            title="Add data-mce-object attribute"
+            description=""
+            handler=".upgrades.upgrade_3"
+            source="2"
+            destination="3"
+            profile="collective.tinymceplugins.latex:default"/>
+
 </configure>

@@ -78,4 +78,3 @@ var LatexDialog = {
 
     }
 };
-};

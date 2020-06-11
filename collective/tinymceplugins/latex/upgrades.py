@@ -1,7 +1,28 @@
-from bs4 import BeautifulSoup
 import plone.api
+from Products.CMFPlone.interfaces import INonInstallable
+from bs4 import BeautifulSoup
 from plone.app.textfield import RichTextValue
-import six
+from zope.interface import implementer
+
+
+@implementer(INonInstallable)
+class HiddenProfiles(object):
+
+    def getNonInstallableProfiles(self):
+        """Hide uninstall profile from site-creation and quickinstaller."""
+        return [
+            'collective.tinymceplugins.latex:uninstall',
+        ]
+
+
+def uninstall(context):
+    buttons = plone.api.portal.get_registry_record('plone.custom_buttons')
+    buttons = [b for b in buttons if b != 'latex']
+    plone.api.portal.set_registry_record('plone.custom_buttons', buttons)
+
+    plugins = plone.api.portal.get_registry_record('plone.custom_plugins')
+    plugins = [p for p in plugins if not p.startswith('latex|')]
+    plone.api.portal.set_registry_record('plone.custom_plugins', plugins)
 
 
 def upgrade_3(context):
@@ -17,5 +38,5 @@ def upgrade_3(context):
                     elem.attrs['data-mce-object'] = 'latex'
                     changed = True
             if changed:
-                page.text = RichTextValue(six.text_type(soup), mimeType=page.text.mimeType,
+                page.text = RichTextValue(str(soup), mimeType=page.text.mimeType,
                                           outputMimeType=page.text.outputMimeType)

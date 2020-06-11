@@ -25,7 +25,7 @@
                 longname: 'Latex plugin',
                 author: 'Eric Wohnlich',
                 authorurl: 'http://www.imsweb.com',
-                infourl: 'https://git.imsweb.com/plone/collective.tinymceplugins.latex',
+                infourl: 'https://github.com/imsweb/collective.tinymceplugins.latex',
                 version: "1.0"
             }
         }

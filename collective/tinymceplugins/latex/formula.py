@@ -23,7 +23,11 @@ class RenderLatex(BrowserView):
     def __call__(self):
         try:
             import matplotlib
-            matplotlib.rcParams['text.latex.preamble'].append(r'\usepackage{amsmath}')
+            preamble = matplotlib.rcParams['text.latex.preamble']
+            if isinstance(preamble, str):
+                matplotlib.rcParams['text.latex.preamble'] = [r'\usepackage{amsmath}']
+            else:
+                matplotlib.rcParams['text.latex.preamble'].append(r'\usepackage{amsmath}')
             matplotlib.use('Agg')  # png
 
             formula = self.request.get('formula') or self.request.get('f')

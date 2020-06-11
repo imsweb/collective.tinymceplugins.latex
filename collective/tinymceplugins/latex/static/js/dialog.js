@@ -38,7 +38,7 @@ var LatexDialog = {
             alignment = ' image-' + alignment;
         }
         if (latexCode) {
-            var img = '<img class="latex' + alignment + '" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + '" data-mce-object="latex"/>';
+            var img = '<img class="latex' + alignment + '" src="' + LatexDialog.getSrc(latexCode, latexSize, pad_inches) + '" alt="' + latexCode + '" data-latex_size="' + latexSize + '" data-pad_inches="' + pad_inches + '"/>';
 
             top.tinymce.activeEditor.selection.setContent(img);
         }

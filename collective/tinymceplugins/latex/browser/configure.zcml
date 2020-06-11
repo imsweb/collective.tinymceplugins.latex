@@ -7,10 +7,4 @@
             class=".dialog.DialogClass"
             template="dialog.pt"
             permission="zope.Public"/>
-    <!--<browser:resource-->
-            <!--file="latex_plugin.js"-->
-            <!--name="latex_plugin.js"/>-->
-    <!--<browser:resource-->
-            <!--file="latex.gif"-->
-            <!--name="latex.gif"/>-->
 </configure>

@@ -11,6 +11,17 @@
             description="Latex plugin/button for TinyMCE wysiwyg editor"
             provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
+    <genericsetup:registerProfile
+            name="uninstall"
+            title="TinyMCE Plugin: LaTeX (uninstall)"
+            directory="profiles/uninstall"
+            description="Uninstalls the collective.tinymceplugins.latex add-on."
+            provides="Products.GenericSetup.interfaces.EXTENSION"
+            post_handler=".upgrades.uninstall"/>
+
+    <utility factory=".upgrades.HiddenProfiles"
+             name="collective.tinymceplugins.latex-hiddenprofiles"/>
+
     <include package=".browser"/>
     <include file="upgrades.zcml"/>
     <include package="Products.CMFCore" file="permissions.zcml"/>

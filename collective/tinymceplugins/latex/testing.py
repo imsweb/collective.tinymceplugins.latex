@@ -1,5 +1,4 @@
 import collective.tinymceplugins.latex
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
@@ -33,13 +32,4 @@ TINYMCE_LATEX_INTEGRATION_TESTING = IntegrationTesting(
 IMS_JAMIS_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(TINYMCE_LATEX_FIXTURE,),
     name='TinyMceLatexLayer::FunctionalTesting',
-)
-
-IMS_JAMIS_ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(
-        TINYMCE_LATEX_FIXTURE,
-        REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
-    ),
-    name='TinyMceLatexLayer::AcceptanceTesting',
 )
